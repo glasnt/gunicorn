@@ -109,25 +109,20 @@ class Message(object):
             if header_length > self.limit_request_field_size > 0:
                 raise LimitRequestHeaders("limit request headers fields size")
 
-            print(f"<GU> message.py:: parse_headers midpoint")
-            print(f"<GU> message.py:: if name ({name}) in headers ({secure_scheme_headers})")
-
-
+            print(f"<GU> message.py:: parsing header {name}, value {value}")
             if name in secure_scheme_headers:
                 secure = value == secure_scheme_headers[name]
-                print(f"<GU> message.py:: secure is {secure}")
+                print(f"<GU> message.py:: secure_scheme_headers:: secure is {secure}")
                 scheme = "https" if secure else "http"
 
-                print(f"<GU> message.py::  ... so now scheme is {scheme}")
+                print(f"<GU> message.py:: secure_scheme_headers::  ... so now scheme is {scheme}")
                 if scheme_header:
                     if scheme != self.scheme:
                         raise InvalidSchemeHeaders()
                 else:
                     scheme_header = True
                     self.scheme = scheme
-                    print(f"<GU> message.py:: self.scheme is now {scheme}")
-
-            print(f"<GU> message.py:: appending {name}, {value}")
+                    print(f"<GU> message.py:: secure_scheme_headers:: self.scheme is now {scheme}")
 
             headers.append((name, value))
 
