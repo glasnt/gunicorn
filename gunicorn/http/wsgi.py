@@ -140,6 +140,7 @@ def create(req, sock, client, server, cfg):
 
     # set the url scheme
     environ['wsgi.url_scheme'] = req.scheme
+    print(f"wsgi.py:: environ['wsgi.url_scheme']: {environ['wsgi.url_scheme']}")
 
     # set the REMOTE_* keys in environ
     # authors should be aware that REMOTE_HOST and REMOTE_ADDR

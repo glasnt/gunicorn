@@ -168,6 +168,9 @@ class Config(object):
 
     @property
     def is_ssl(self):
+        print("config.py:: GUNICORN DEBUGGING")
+        print(f"config.py:: self.certfile: {self.certfile}")
+        print(f"config.py:: self.keyfile: {self.keyfile}")
         return self.certfile or self.keyfile
 
     @property
