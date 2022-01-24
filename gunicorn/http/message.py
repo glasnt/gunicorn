@@ -36,6 +36,8 @@ class Message(object):
         self.trailers = []
         self.body = None
         self.scheme = "https" if cfg.is_ssl else "http"
+        print(f"message.py:: scheme is being manually set to {self.scheme} because cfg.is_ssl is {cfg.is_ssl}")
+
 
         # set headers limits
         self.limit_request_fields = cfg.limit_request_fields

@@ -77,8 +77,10 @@ class TCPSocket(BaseSocket):
 
     def __str__(self):
         if self.conf.is_ssl:
+            print(f"sock.py:: scheme is being manually set as https")
             scheme = "https"
-        else:
+        else:           
+            print(f"sock.py:: scheme is being manually set as insecure http")
             scheme = "http"
 
         addr = self.sock.getsockname()

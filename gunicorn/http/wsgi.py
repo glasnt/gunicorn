@@ -166,10 +166,13 @@ def create(req, sock, client, server, cfg):
                 server = host.split(':')
                 if len(server) == 1:
                     if req.scheme == "http":
+                        print(f"wsgi.py:create:: server being appened 80 because scheme is http")
                         server.append(80)
                     elif req.scheme == "https":
+                        print(f"wsgi.py:create:: server being appened 443 because scheme is https")
                         server.append(443)
                     else:
+                        print(f"wsgi.py:create:: there is no scheme, so no server appending.")
                         server.append('')
             else:
                 # no host header given which means that we are not behind a
