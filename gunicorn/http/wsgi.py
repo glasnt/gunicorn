@@ -139,6 +139,7 @@ def create(req, sock, client, server, cfg):
         environ[key] = hdr_value
 
     # set the url scheme
+    print(f"<GU> wsgi.py:: setting the scheme...")
     environ['wsgi.url_scheme'] = req.scheme
     print(f"<GU> wsgi.py:: environ['wsgi.url_scheme']: {environ['wsgi.url_scheme']}")
 
