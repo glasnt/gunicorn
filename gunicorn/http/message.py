@@ -70,10 +70,19 @@ class Message(object):
         # handle scheme headers
         scheme_header = False
         secure_scheme_headers = {}
+
+        print(f"<GU> message.py:: parse_headers()")
+
+        print(f"<GU> message.py:: cfg.forwarded_allow_ips {cfg.forwarded_allow_ips}")
+        print(f"<GU> message.py:: isinstance(self.peer_addr, tuple) {isinstance(self.peer_addr, tuple)}")
+        print(f"<GU> message.py:: self.peer_addr[0] {self.peer_addr[0]}")
+
         if ('*' in cfg.forwarded_allow_ips or
             not isinstance(self.peer_addr, tuple)
             or self.peer_addr[0] in cfg.forwarded_allow_ips):
             secure_scheme_headers = cfg.secure_scheme_headers
+        
+        print(f"<GU> message.py:: parsing headers. secure_scheme_headers: {secure_scheme_headers}")
 
         # Parse headers into key/value pairs paying attention
         # to continuation lines.
