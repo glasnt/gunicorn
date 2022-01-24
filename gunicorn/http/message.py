@@ -36,7 +36,9 @@ class Message(object):
         self.trailers = []
         self.body = None
         self.scheme = "https" if cfg.is_ssl else "http"
-        print(f"<GU> message.py:: scheme is being manually set to {self.scheme} because cfg.is_ssl is {cfg.is_ssl}")
+
+        print(f"<GU> message.py:: peer_addr is {peer_addr}")
+        print(f"<GU> message.py:: scheme is being manually set to {self.scheme} because cfg.is_ssl is {cfg.is_ssl} (no certfile or keyfile)")
 
 
         # set headers limits
